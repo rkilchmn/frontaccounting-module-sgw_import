@@ -59,7 +59,9 @@ class CsvFile
     private function readHeaderInfo()
     {
         $this->columns = [];
-        $fields = fgetcsv($this->fh);
+        // the $escape argument has to be given explicitly, its default value
+        // changes in PHP 9 (deprecation since PHP 8.4)
+        $fields = fgetcsv($this->fh, 0, ',', '"', '\\');
         foreach ($fields as $field) {
             $this->columns[] = $field;
         }
@@ -67,7 +69,7 @@ class CsvFile
 
     public function read()
     {
-        $row = fgetcsv($this->fh);
+        $row = fgetcsv($this->fh, 0, ',', '"', '\\');
         if ($row == false) {
             return null;
         }
