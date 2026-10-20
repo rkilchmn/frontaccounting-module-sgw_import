@@ -250,8 +250,7 @@ importer reads the right cells whatever their position is.
 ## A walkthrough
 
 The test file is [`samples/bank_supplier.csv`](samples/bank_supplier.csv) in
-this repository (the same file is kept as `test-data/sgw_import/` in the
-application repository):
+this repository:
 
 ```
 Date,Description,Reference,Amount
